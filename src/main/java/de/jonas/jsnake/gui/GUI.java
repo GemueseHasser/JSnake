@@ -2,6 +2,7 @@ package de.jonas.jsnake.gui;
 
 import de.jonas.JSnake;
 import de.jonas.jsnake.constant.SnakeFieldState;
+import de.jonas.jsnake.object.Apple;
 import de.jonas.jsnake.object.SnakeField;
 import org.jetbrains.annotations.NotNull;
 
@@ -97,7 +98,14 @@ public final class GUI {
 
                     // draw rect
                     g.setColor(field.getState().getColor());
-                    g.fillRect(x, y, GAME_RECTS_SIZE, GAME_RECTS_SIZE);
+
+                    if (field.getState() == SnakeFieldState.APPLE) {
+                        // draw apple
+                        g.fillOval(x + (GAME_RECTS_SIZE / 2), y + (GAME_RECTS_SIZE / 2), Apple.SIZE, Apple.SIZE);
+                    } else {
+                        // draw default
+                        g.fillRect(x, y, GAME_RECTS_SIZE, GAME_RECTS_SIZE);
+                    }
 
                     // draw rect
                     g.setColor(Color.BLACK);

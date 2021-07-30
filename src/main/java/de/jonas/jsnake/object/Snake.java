@@ -58,6 +58,11 @@ public final class Snake {
             System.exit(0);
         }
 
+        // check if snake eats an apple
+        if (getHeadField().getState() == SnakeFieldState.APPLE) {
+            addBody();
+        }
+
         // check if snake has a body
         if (bodyPositions.size() == 0) {
             // dont move body
@@ -78,11 +83,21 @@ public final class Snake {
 
     private boolean leavesArea() {
         // check if snake leaves area
-        return getHeadField().getNumber() % 15 == 0;
+        try {
+            getHeadField();
+        } catch (@NotNull final NullPointerException ignored) {
+            return true;
+        }
+
+        return (getHeadField().getNumber() % 15 == 0);
     }
 
     private boolean selfCollide() {
         // check if snake bites herself
+        if (getHeadField().getState() == SnakeFieldState.APPLE) {
+            return false;
+        }
+
         return getHeadField().getState() != SnakeFieldState.NONE;
     }
 }

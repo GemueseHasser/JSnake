@@ -1,8 +1,10 @@
 package de.jonas;
 
 import de.jonas.jsnake.gui.GUI;
+import de.jonas.jsnake.object.Apple;
 import de.jonas.jsnake.object.Snake;
 import de.jonas.jsnake.object.SnakeField;
+import de.jonas.jsnake.task.AppleSpawningTask;
 import de.jonas.jsnake.task.SnakeMovementTask;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +19,8 @@ public class JSnake {
 
     @Getter
     private static Snake snake;
+    @Getter
+    private static Apple apple;
 
     public static void main(@NotNull final String @NotNull [] args) {
         // create graphical user interface
@@ -25,12 +29,14 @@ public class JSnake {
         // create snake
         snake = new Snake();
 
+        // create apple
+        apple = new Apple();
+
         // launch snake
         new SnakeMovementTask().start();
 
-        for (int i = 0; i < 5; i++) {
-            snake.addBody();
-        }
+        // start periodic apple spawning
+        new AppleSpawningTask().start();
     }
 
 }

@@ -20,6 +20,10 @@ public enum SnakeFieldState {
     HEAD(
         SnakeFieldDirection.NONE,
         Color.RED
+    ),
+    APPLE(
+        SnakeFieldDirection.NONE,
+        Color.RED
     );
 
 
