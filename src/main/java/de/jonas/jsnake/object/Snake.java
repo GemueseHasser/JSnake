@@ -1,6 +1,7 @@
 package de.jonas.jsnake.object;
 
 import de.jonas.JSnake;
+import de.jonas.jsnake.constant.SnakeFieldDirection;
 import de.jonas.jsnake.constant.SnakeFieldState;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
@@ -15,6 +16,7 @@ public final class Snake {
 
     @Getter
     private int headPosition;
+    @Getter
     private final LinkedList<Integer> bodyPositions = new LinkedList<>();
 
 
@@ -45,7 +47,7 @@ public final class Snake {
         final SnakeField head = getHeadField();
 
         // dont start until user pressed a key
-        if (head.getState().getDirection() == SnakeFieldState.SnakeFieldDirection.NONE) {
+        if (head.getState().getDirection() == SnakeFieldDirection.NONE) {
             getHeadField().setState(SnakeFieldState.HEAD);
             return;
         }
@@ -53,8 +55,8 @@ public final class Snake {
         // move head-field in current direction
         this.headPosition += head.getState().getDirection().getAddition();
 
-        // check if snake leaves the game-area or bites herself
-        if (leavesArea() || selfCollide()) {
+        // check if snake bites herself
+        if (selfCollide()) {
             System.exit(0);
         }
 
@@ -79,17 +81,29 @@ public final class Snake {
 
         // move head
         getHeadField().setState(SnakeFieldState.HEAD);
+
+        // check if snake leaves game-area
+        if (leavesArea()) {
+            System.exit(0);
+        }
     }
 
     private boolean leavesArea() {
         // check if snake leaves area
-        try {
-            getHeadField();
-        } catch (@NotNull final NullPointerException ignored) {
+        if (getHeadField() == null) {
             return true;
         }
 
-        return (getHeadField().getNumber() % 15 == 0);
+        switch (getHeadField().getState().getDirection()) {
+            case LEFT:
+                return getHeadField().getNumber() % 15 == 14;
+
+            case RIGHT:
+                return getHeadField().getNumber() % 15 == 0;
+
+            default:
+                return false;
+        }
     }
 
     private boolean selfCollide() {

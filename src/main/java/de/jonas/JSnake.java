@@ -1,5 +1,6 @@
 package de.jonas;
 
+import de.jonas.jsnake.constant.SnakeFieldDirection;
 import de.jonas.jsnake.gui.GUI;
 import de.jonas.jsnake.object.Apple;
 import de.jonas.jsnake.object.Snake;
@@ -21,10 +22,11 @@ public class JSnake {
     private static Snake snake;
     @Getter
     private static Apple apple;
+    private static GUI gameGui;
 
     public static void main(@NotNull final String @NotNull [] args) {
         // create graphical user interface
-        new GUI();
+        gameGui = new GUI();
 
         // create snake
         snake = new Snake();
@@ -37,6 +39,30 @@ public class JSnake {
 
         // start periodic apple spawning
         new AppleSpawningTask().start();
+
+        // open graphical user interface
+        gameGui.open();
+    }
+
+
+    public static void restart() {
+        // set snake direction to 'NONE'
+        snake.getHeadField().getState().setDirection(SnakeFieldDirection.NONE);
+
+        // recreate snake
+        snake = new Snake();
+
+        // recreate apple
+        apple = new Apple();
+
+        // clear given snake-fields
+        SNAKE_FIELDS.clear();
+
+        // reload graphical user interface
+        gameGui.reload();
+
+        // spawn apple
+        apple.spawn();
     }
 
 }
