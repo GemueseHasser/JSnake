@@ -22,6 +22,8 @@ public class JSnake {
     private static Snake snake;
     @Getter
     private static Apple apple;
+    @Getter
+    private static AppleSpawningTask appleSpawningTask;
     private static GUI gameGui;
 
     public static void main(@NotNull final String @NotNull [] args) {
@@ -38,7 +40,8 @@ public class JSnake {
         new SnakeMovementTask().start();
 
         // start periodic apple spawning
-        new AppleSpawningTask().start();
+        appleSpawningTask = new AppleSpawningTask();
+        appleSpawningTask.start();
 
         // open graphical user interface
         gameGui.open();
@@ -60,6 +63,9 @@ public class JSnake {
 
         // reload graphical user interface
         gameGui.reload();
+
+        // reset apple spawn-intervall
+        appleSpawningTask.resetSpawnIntervall();
 
         // spawn apple
         apple.spawn();

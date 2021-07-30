@@ -18,11 +18,11 @@ public final class GUI implements ActionListener {
     private static final int WIDTH = 750;
     private static final int HEIGHT = 500;
 
-    private static final String RESTART_BUTTON_TEXT = "Neustarten";
-    private static final int RESTART_BUTTON_X = 500;
-    private static final int RESTART_BUTTON_Y = 30;
-    private static final int RESTART_BUTTON_WIDTH = 100;
-    private static final int RESTART_BUTTON_HEIGHT = 30;
+    private static final String RESTART_BUTTON_TEXT = "Spiel Neustarten";
+    private static final int RESTART_BUTTON_X = 510;
+    private static final int RESTART_BUTTON_Y = 215;
+    private static final int RESTART_BUTTON_WIDTH = 150;
+    private static final int RESTART_BUTTON_HEIGHT = 40;
 
 
     private final JFrame frame;

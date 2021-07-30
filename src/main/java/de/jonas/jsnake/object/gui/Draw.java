@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.JLabel;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -20,6 +21,11 @@ public final class Draw extends JLabel {
     private static final int GAME_RECT_SIZE = 15;
 
     private static final int GAME_RECTS_SIZE = 27;
+
+    private static final Font INFORMATION_FONT = new Font("Arial", Font.BOLD, 20);
+
+    private static final int APPLE_SPAWN_TIMER_X = 500;
+    private static final int APPLE_SPAWN_TIMER_Y = 100;
 
 
     private int x;
@@ -56,6 +62,7 @@ public final class Draw extends JLabel {
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
+        // draw game-rect
         y = GAME_RECT_Y;
 
         for (int i = 0; i < GAME_RECT_SIZE; i++) {
@@ -86,6 +93,16 @@ public final class Draw extends JLabel {
             }
             y += GAME_RECTS_SIZE;
         }
+
+        // draw information
+        g.setFont(INFORMATION_FONT);
+        g.setColor(Color.RED);
+
+        g.drawString(
+            "Apfel-Spawn in " + JSnake.getAppleSpawningTask().getCurrentSpawnIntervall(),
+            APPLE_SPAWN_TIMER_X,
+            APPLE_SPAWN_TIMER_Y
+        );
 
         repaint();
     }
