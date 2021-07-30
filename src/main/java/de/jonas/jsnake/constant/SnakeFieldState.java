@@ -60,7 +60,7 @@ public enum SnakeFieldState {
         }
 
 
-        public SnakeFieldDirection getOpposide() {
+        public SnakeFieldDirection getOpposite() {
             if (this == RIGHT) {
                 return LEFT;
             }
