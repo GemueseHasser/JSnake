@@ -121,20 +121,42 @@ public final class GUI {
 
         @Override
         public void keyPressed(final KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_UP) {
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.UP);
-            }
 
-            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.DOWN);
-            }
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_UP:
+                    if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldState.SnakeFieldDirection.DOWN) {
+                        return;
+                    }
 
-            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.LEFT);
-            }
+                    JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.UP);
+                    break;
 
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.RIGHT);
+                case KeyEvent.VK_DOWN:
+                    if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldState.SnakeFieldDirection.UP) {
+                        return;
+                    }
+
+                    JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.DOWN);
+                    break;
+
+                case KeyEvent.VK_LEFT:
+                    if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldState.SnakeFieldDirection.RIGHT) {
+                        return;
+                    }
+
+                    JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.LEFT);
+                    break;
+
+                case KeyEvent.VK_RIGHT:
+                    if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldState.SnakeFieldDirection.LEFT) {
+                        return;
+                    }
+
+                    JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldState.SnakeFieldDirection.RIGHT);
+                    break;
+
+                default:
+                    break;
             }
         }
 

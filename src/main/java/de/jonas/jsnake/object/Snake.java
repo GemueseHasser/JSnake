@@ -30,14 +30,14 @@ public final class Snake {
         // add first body
         if (this.bodyPositions.size() == 0) {
             final SnakeField head = getHeadField();
-            this.bodyPositions.addLast(head.getNumber() + head.getState().getDirection().getOpposide().getAddition());
+            this.bodyPositions.addLast(head.getNumber() + head.getState().getDirection().getOpposite().getAddition());
             return;
         }
 
         // add body to other bodies
         final SnakeField before = JSnake.SNAKE_FIELDS.get(this.bodyPositions.getLast());
 
-        this.bodyPositions.addLast(before.getNumber() + before.getState().getDirection().getOpposide().getAddition());
+        this.bodyPositions.addLast(before.getNumber() + before.getState().getDirection().getOpposite().getAddition());
     }
 
     public void move() {
@@ -78,10 +78,11 @@ public final class Snake {
 
     private boolean leavesArea() {
         // check if snake leaves area
-        return false;
+        return getHeadField().getNumber() % 15 == 0;
     }
 
     private boolean selfCollide() {
+        // check if snake bites herself
         return getHeadField().getState() != SnakeFieldState.NONE;
     }
 }
