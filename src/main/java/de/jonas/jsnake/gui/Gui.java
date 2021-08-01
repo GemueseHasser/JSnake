@@ -11,7 +11,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public final class GUI implements ActionListener {
+public final class Gui implements ActionListener {
 
     private static final String TITLE = "Snake - by Jonas";
 
@@ -31,7 +31,7 @@ public final class GUI implements ActionListener {
 
     private final JButton restart;
 
-    public GUI() {
+    public Gui() {
         this.frame = new JFrame(TITLE);
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setBounds(0, 0, WIDTH, HEIGHT);

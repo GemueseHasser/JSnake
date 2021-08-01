@@ -52,12 +52,23 @@ public final class Snake {
             return;
         }
 
+        final int addition = head.getState().getDirection().getAddition();
+
         // move head-field in current direction
-        this.headPosition += head.getState().getDirection().getAddition();
+        this.headPosition += addition;
+
+        // check if head-field is null
+        if (getHeadField() == null) {
+            this.headPosition -= addition;
+            JSnake.setGameRunning(false);
+            JSnake.getWindowGui().show();
+            return;
+        }
 
         // check if snake bites herself
         if (selfCollide()) {
-            System.exit(0);
+            JSnake.setGameRunning(false);
+            JSnake.getWindowGui().show();
         }
 
         // check if snake eats an apple
@@ -84,7 +95,8 @@ public final class Snake {
 
         // check if snake leaves game-area
         if (leavesArea()) {
-            System.exit(0);
+            JSnake.setGameRunning(false);
+            JSnake.getWindowGui().show();
         }
     }
 

@@ -17,6 +17,9 @@ public final class SnakeMovementTask {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                if (!JSnake.isGameRunning()) {
+                    return;
+                }
                 JSnake.getSnake().move();
             }
         }, DELAY, PERIOD);
