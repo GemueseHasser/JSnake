@@ -19,11 +19,11 @@ import java.awt.RenderingHints;
 public final class Draw extends JLabel {
 
     @Range(from = 0, to = Integer.MAX_VALUE)
+    public static final int GAME_RECT_SIZE = 15;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECT_X = 50;
     @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECT_Y = 30;
-    @Range(from = 0, to = Integer.MAX_VALUE)
-    private static final int GAME_RECT_SIZE = 15;
 
     @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECTS_SIZE = 27;
