@@ -3,10 +3,10 @@ package de.jonas.jsnake.constant;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Range;
 
 import java.awt.Color;
 
+@NotNull
 public enum SnakeFieldState {
 
     NONE(

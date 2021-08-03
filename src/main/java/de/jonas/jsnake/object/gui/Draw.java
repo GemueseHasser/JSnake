@@ -5,6 +5,7 @@ import de.jonas.jsnake.constant.SnakeFieldState;
 import de.jonas.jsnake.object.Apple;
 import de.jonas.jsnake.object.SnakeField;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 import javax.swing.JLabel;
 
@@ -14,28 +15,30 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+@NotNull
 public final class Draw extends JLabel {
 
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECT_X = 50;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECT_Y = 30;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECT_SIZE = 15;
 
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECTS_SIZE = 27;
 
+    @NotNull
     private static final Font INFORMATION_FONT = new Font("Arial", Font.BOLD, 20);
 
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int APPLE_SPAWN_TIMER_X = 500;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int APPLE_SPAWN_TIMER_Y = 100;
 
 
-    private int x;
-    private int y;
-
-
     public Draw() {
-        y = GAME_RECT_Y;
         for (int i = 0; i < GAME_RECT_SIZE; i++) {
-            x = GAME_RECT_X;
             for (int j = 0; j < GAME_RECT_SIZE; j++) {
                 // calculate field number
                 final int fieldNumber = i * GAME_RECT_SIZE + j;
@@ -63,10 +66,10 @@ public final class Draw extends JLabel {
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
         // draw game-rect
-        y = GAME_RECT_Y;
+        int y = GAME_RECT_Y;
 
         for (int i = 0; i < GAME_RECT_SIZE; i++) {
-            x = GAME_RECT_X;
+            int x = GAME_RECT_X;
             for (int j = 0; j < GAME_RECT_SIZE; j++) {
                 // calculate field number
                 final int fieldNumber = i * GAME_RECT_SIZE + j;

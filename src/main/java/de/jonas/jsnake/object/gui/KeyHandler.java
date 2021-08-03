@@ -2,59 +2,63 @@ package de.jonas.jsnake.object.gui;
 
 import de.jonas.JSnake;
 import de.jonas.jsnake.constant.SnakeFieldDirection;
+import de.jonas.jsnake.object.SnakeField;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+@NotNull
 public final class KeyHandler implements KeyListener {
 
     @Override
-    public void keyTyped(final KeyEvent e) {
-
+    public void keyTyped(@NotNull final KeyEvent e) {
     }
 
     @Override
-    public void keyPressed(final KeyEvent e) {
+    public void keyPressed(@NotNull final KeyEvent e) {
+        final SnakeField head = JSnake.getSnake().getHeadField();
 
+        assert head != null;
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-                if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldDirection.DOWN
+                if (head.getState().getDirection() == SnakeFieldDirection.DOWN
                     && JSnake.getSnake().getBodyPositions().size() != 0
                 ) {
                     return;
                 }
 
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldDirection.UP);
+                head.getState().setDirection(SnakeFieldDirection.UP);
                 break;
 
             case KeyEvent.VK_DOWN:
-                if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldDirection.UP
+                if (head.getState().getDirection() == SnakeFieldDirection.UP
                     && JSnake.getSnake().getBodyPositions().size() != 0
                 ) {
                     return;
                 }
 
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldDirection.DOWN);
+                head.getState().setDirection(SnakeFieldDirection.DOWN);
                 break;
 
             case KeyEvent.VK_LEFT:
-                if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldDirection.RIGHT
+                if (head.getState().getDirection() == SnakeFieldDirection.RIGHT
                     && JSnake.getSnake().getBodyPositions().size() != 0
                 ) {
                     return;
                 }
 
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldDirection.LEFT);
+                head.getState().setDirection(SnakeFieldDirection.LEFT);
                 break;
 
             case KeyEvent.VK_RIGHT:
-                if (JSnake.getSnake().getHeadField().getState().getDirection() == SnakeFieldDirection.LEFT
+                if (head.getState().getDirection() == SnakeFieldDirection.LEFT
                     && JSnake.getSnake().getBodyPositions().size() != 0
                 ) {
                     return;
                 }
 
-                JSnake.getSnake().getHeadField().getState().setDirection(SnakeFieldDirection.RIGHT);
+                head.getState().setDirection(SnakeFieldDirection.RIGHT);
                 break;
 
             default:
@@ -63,7 +67,7 @@ public final class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyReleased(final KeyEvent e) {
+    public void keyReleased(@NotNull final KeyEvent e) {
 
     }
 }

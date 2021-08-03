@@ -17,8 +17,11 @@ import java.util.Map;
 
 // grafik überarbeiten
 // *** write Javadoc ***
+// editor-folds
+@NotNull
 public class JSnake {
 
+    @NotNull
     public static final Map<Integer, SnakeField> SNAKE_FIELDS = new HashMap<>();
 
 
@@ -69,7 +72,10 @@ public class JSnake {
         isGameRunning = true;
 
         // set snake direction to 'NONE'
-        snake.getHeadField().getState().setDirection(SnakeFieldDirection.NONE);
+        final SnakeField head = snake.getHeadField();
+
+        assert head != null;
+        head.getState().setDirection(SnakeFieldDirection.NONE);
 
         // recreate snake
         snake = new Snake();

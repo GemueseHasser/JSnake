@@ -1,16 +1,22 @@
 package de.jonas.jsnake.gui;
 
 import de.jonas.jsnake.object.gui.DrawWindow;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 import javax.swing.JWindow;
 
 import java.awt.Color;
 
+@NotNull
 public final class WindowGui {
 
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int WIDTH = 155;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int HEIGHT = 100;
 
+    @NotNull
     private final JWindow window;
 
 

@@ -3,6 +3,8 @@ package de.jonas.jsnake.gui;
 import de.jonas.JSnake;
 import de.jonas.jsnake.object.gui.Draw;
 import de.jonas.jsnake.object.gui.KeyHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,24 +13,34 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@NotNull
 public final class Gui implements ActionListener {
 
+    @NotNull
     private static final String TITLE = "Snake - by Jonas";
 
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int WIDTH = 750;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int HEIGHT = 500;
 
+    @NotNull
     private static final String RESTART_BUTTON_TEXT = "Spiel Neustarten";
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int RESTART_BUTTON_X = 510;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int RESTART_BUTTON_Y = 215;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int RESTART_BUTTON_WIDTH = 150;
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int RESTART_BUTTON_HEIGHT = 40;
 
 
+    @NotNull
     private final JFrame frame;
-
+    @NotNull
     private Draw draw;
-
+    @NotNull
     private final JButton restart;
 
     public Gui() {
@@ -68,7 +80,7 @@ public final class Gui implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(final ActionEvent e) {
+    public void actionPerformed(@NotNull final ActionEvent e) {
         if (e.getSource().equals(this.restart)) {
             JSnake.restart();
         }

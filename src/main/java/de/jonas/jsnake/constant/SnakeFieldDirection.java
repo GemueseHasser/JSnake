@@ -1,8 +1,10 @@
 package de.jonas.jsnake.constant;
 
 import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Range;
 
+@NotNull
 public enum SnakeFieldDirection {
 
     NONE(0),
@@ -22,6 +24,7 @@ public enum SnakeFieldDirection {
     }
 
 
+    @NotNull
     public SnakeFieldDirection getOpposite() {
         if (this == RIGHT) {
             return LEFT;

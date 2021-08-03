@@ -10,9 +10,12 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
+@NotNull
 public final class DrawWindow extends JLabel {
 
+    @NotNull
     private static final Font WINDOW_FONT = new Font("Arial", Font.BOLD, 35);
+    @NotNull
     private static final String WINDOW_TEXT = "Verloren!";
 
 

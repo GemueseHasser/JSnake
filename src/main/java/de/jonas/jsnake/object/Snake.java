@@ -5,18 +5,23 @@ import de.jonas.jsnake.constant.SnakeFieldDirection;
 import de.jonas.jsnake.constant.SnakeFieldState;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Range;
 
 import java.util.LinkedList;
 
 @NotNull
 public final class Snake {
 
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private static final int GAME_RECT_SIZE = 15;
 
 
     @Getter
+    @Range(from = 0, to = Integer.MAX_VALUE)
     private int headPosition;
     @Getter
+    @NotNull
     private final LinkedList<Integer> bodyPositions = new LinkedList<>();
 
 
@@ -24,6 +29,7 @@ public final class Snake {
         this.headPosition = GAME_RECT_SIZE * GAME_RECT_SIZE / 2;
     }
 
+    @Nullable
     public SnakeField getHeadField() {
         return JSnake.SNAKE_FIELDS.get(this.headPosition);
     }
@@ -32,6 +38,7 @@ public final class Snake {
         // add first body
         if (this.bodyPositions.size() == 0) {
             final SnakeField head = getHeadField();
+            assert head != null;
             this.bodyPositions.addLast(head.getNumber() + head.getState().getDirection().getOpposite().getAddition());
             return;
         }
@@ -47,6 +54,7 @@ public final class Snake {
         final SnakeField head = getHeadField();
 
         // dont start until user pressed a key
+        assert head != null;
         if (head.getState().getDirection() == SnakeFieldDirection.NONE) {
             getHeadField().setState(SnakeFieldState.HEAD);
             return;
@@ -120,7 +128,10 @@ public final class Snake {
 
     private boolean selfCollide() {
         // check if snake bites herself
-        if (getHeadField().getState() == SnakeFieldState.APPLE) {
+        final SnakeField head = getHeadField();
+
+        assert head != null;
+        if (head.getState() == SnakeFieldState.APPLE) {
             return false;
         }
 
