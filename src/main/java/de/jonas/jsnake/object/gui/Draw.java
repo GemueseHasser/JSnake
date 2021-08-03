@@ -79,7 +79,12 @@ public final class Draw extends JLabel {
 
                 if (field.getState() == SnakeFieldState.APPLE) {
                     // draw apple
-                    g.fillOval(x + (GAME_RECTS_SIZE / 2), y + (GAME_RECTS_SIZE / 2), Apple.SIZE, Apple.SIZE);
+                    g.fillOval(
+                        x + (GAME_RECTS_SIZE / 2) - Apple.SIZE / 2,
+                        y + (GAME_RECTS_SIZE / 2) - Apple.SIZE / 2,
+                        Apple.SIZE,
+                        Apple.SIZE
+                    );
                 } else {
                     // draw default
                     g.fillRect(x, y, GAME_RECTS_SIZE, GAME_RECTS_SIZE);

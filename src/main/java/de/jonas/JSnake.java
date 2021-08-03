@@ -15,9 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-// implement loose window
 // grafik überarbeiten
-// apfel ausrichten
 // *** write Javadoc ***
 public class JSnake {
 
