@@ -20,15 +20,15 @@ import org.jetbrains.annotations.Range;
 public final class SnakeField {
 
     //<editor-fold desc="LOCAL FIELDS">
+    /** Die Nummer des jeweiligen Feldes, also an welcher Stelle auf dem Spielfeld sich das Feld befindet. */
+    @Getter
+    @Range(from = 0, to = Integer.MAX_VALUE)
+    private final int number;
     /** Der {@link SnakeFieldState Status} des jeweiligen Feldes. */
     @Getter
     @Setter
     @NotNull
     private SnakeFieldState state;
-    /** Die Nummer des jeweiligen Feldes, also an welcher Stelle auf dem Spielfeld sich das Feld befindet. */
-    @Getter
-    @Range(from = 0, to = Integer.MAX_VALUE)
-    private final int number;
     //</editor-fold>
 
 

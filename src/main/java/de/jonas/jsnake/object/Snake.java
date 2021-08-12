@@ -23,14 +23,14 @@ import static de.jonas.jsnake.object.gui.Draw.GAME_RECT_SIZE;
 public final class Snake {
 
     //<editor-fold desc="LOCAL FIELDS">
-    /** Die derzeitige Position (Nummer des Feldes) des Kopfes dieser Schlange. */
-    @Getter
-    @Range(from = 0, to = Integer.MAX_VALUE)
-    private int headPosition;
     /** Eine in Reihenfolge sortierte Liste, mit allen Positionen (Nummern der Felder) der Körperteile. */
     @Getter
     @NotNull
     private final LinkedList<Integer> bodyPositions = new LinkedList<>();
+    /** Die derzeitige Position (Nummer des Feldes) des Kopfes dieser Schlange. */
+    @Getter
+    @Range(from = 0, to = Integer.MAX_VALUE)
+    private int headPosition;
     //</editor-fold>
 
 

@@ -56,12 +56,12 @@ public final class Gui implements ActionListener {
     /** Das Fenster, welches beim Instanziieren erstellt wird und auf welches das {@link Gui} aufbaut. */
     @NotNull
     private final JFrame frame;
-    /** Die Klasse, welche genutzt wird, um auf das Fenster zu zeichnen. */
-    @NotNull
-    private Draw draw;
     /** Der Button im Interaktions-Menü, welcher genutzt wird, um das Spiel neu zu starten. */
     @NotNull
     private final JButton restart;
+    /** Die Klasse, welche genutzt wird, um auf das Fenster zu zeichnen. */
+    @NotNull
+    private Draw draw;
     //</editor-fold>
 
 

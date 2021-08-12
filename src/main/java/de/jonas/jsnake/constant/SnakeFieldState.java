@@ -39,15 +39,15 @@ public enum SnakeFieldState {
 
 
     //<editor-fold desc="LOCAL FIELDS">
+    /** Die Farbe, die der jeweilige {@link SnakeFieldState} übergibt. */
+    @Getter
+    @NotNull
+    private final Color color;
     /** Die {@link SnakeFieldDirection Richtung}, die der jeweilige {@link SnakeFieldState} übergibt. */
     @Setter
     @Getter
     @NotNull
     private SnakeFieldDirection direction;
-    /** Die Farbe, die der jeweilige {@link SnakeFieldState} übergibt. */
-    @Getter
-    @NotNull
-    private final Color color;
     //</editor-fold>
 
 
