@@ -10,9 +10,11 @@ import org.jetbrains.annotations.Range;
  * Ein {@link SnakeField} ist ein Feld, welches einen {@link SnakeFieldState} und eine Nummer beinhaltet. Das Feld kann
  * entweder leer sein, es kann sich der Apfel in ihm befinden, es kann sich ein Körperteil der Schlange darin befinden,
  * oder es kann sich der Kopf der Schlange darin befinden. Und das macht jeweils der {@link SnakeFieldState} des Feldes
- * aus. Die Nummer ist die Nummer, um das Feld identifizieren zu können. Die Felder sind von oben links in der Ecke (bei
- * 0 angefangen) bis unten rechts in der Ecke des Spielfeldes durch-nummeriert, sodass man sehr einfach an jedes Feld
- * kommt.
+ * aus. Der {@link SnakeFieldState} entscheidet ebenfalls die Richtung die das Feld haben soll und wenn sich die
+ * Schlange in dem Feld befindet (mit dem Kopf oder einem Körperteil) wird dieser/dieses bei der nächsten Bewegung in
+ * jene Richtung verschoben, welche durch den {@link SnakeFieldState} vordefiniert ist. Die Nummer ist die Nummer, um
+ * das Feld identifizieren zu können. Die Felder sind von oben links in der Ecke (bei 0 angefangen) bis unten rechts in
+ * der Ecke des Spielfeldes durch-nummeriert, sodass man sehr einfach an jedes Feld kommt.
  */
 @NotNull
 public final class SnakeField {

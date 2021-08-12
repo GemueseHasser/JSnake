@@ -2,15 +2,26 @@ package de.jonas.jsnake.object.gui;
 
 import de.jonas.JSnake;
 import de.jonas.jsnake.constant.SnakeFieldDirection;
+import de.jonas.jsnake.gui.Gui;
 import de.jonas.jsnake.object.SnakeField;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * <p>Mithilfe des {@link KeyHandler} wird jede Aktion, welche auf der Tastatur ausgeführt wird, während das {@link Gui
+ * Fenster} fokussiert wird, abgepasst und verarbeitet. Es werden alle nötigen Informationen beim Triggern dieses Events
+ * weitergegeben, sodass beispielsweise überprüft werden kann, um welche Taste es sich handelt.</p>
+ *
+ * <p>Dieser Listener wird ausschließlich genutzt, um zu überprüfen, wann der Nutzer die Pfeil-Tasten drückt, damit
+ * die Richtung der Schlange bestimmt werden kann. Zudem wird jede Aktion der Pfeiltasten ausgeführt, sobald diese
+ * gedrückt wurden. NICHT nachdem sie wieder losgelassen wurden.</p>
+ */
 @NotNull
 public final class KeyHandler implements KeyListener {
 
+    //<editor-fold desc="implementation">
     @Override
     public void keyTyped(@NotNull final KeyEvent e) {
     }
@@ -70,4 +81,5 @@ public final class KeyHandler implements KeyListener {
     public void keyReleased(@NotNull final KeyEvent e) {
 
     }
+    //</editor-fold>
 }

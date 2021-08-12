@@ -15,10 +15,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-// grafik überarbeiten
-// *** write Javadoc ***
-// editor-folds
-
 /**
  * <p>Dies ist die Haupt- und Main-Klasse dieser Anwendung. Diese Anwendung spiegelt das Spiel 'Snake' wieder. In
  * dieser Klasse werden alle Nötigen Klassen für den Start des Spiels initialisiert. Durch diese Haupt-Klasse kommt man
