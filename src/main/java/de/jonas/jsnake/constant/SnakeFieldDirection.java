@@ -55,22 +55,21 @@ public enum SnakeFieldDirection {
      */
     @NotNull
     public SnakeFieldDirection getOpposite() {
-        if (this == RIGHT) {
-            return LEFT;
-        }
+        switch (this) {
+            case LEFT:
+                return RIGHT;
 
-        if (this == LEFT) {
-            return RIGHT;
-        }
+            case RIGHT:
+                return LEFT;
 
-        if (this == UP) {
-            return DOWN;
-        }
+            case UP:
+                return DOWN;
 
-        if (this == DOWN) {
-            return UP;
-        }
+            case DOWN:
+                return UP;
 
-        return NONE;
+            default:
+                return NONE;
+        }
     }
 }
